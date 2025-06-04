@@ -6,4 +6,5 @@
 # (or turn it off when launching it)
 
 sync
-# echo 1 >/proc/sys/vm/drop_caches
+rm /home/data/openobserve/cache
+echo 1 >/proc/sys/vm/drop_caches

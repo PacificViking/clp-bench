@@ -2,15 +2,21 @@
 
 ## Basics
 
-Version: [1.0.0][download]
+> Note: running queries immediately after a reset causes errors since reset returns when deleting
+the stream but the stream still shows up undeleted for an amount of time
+
+Version 0.15.0-rc1
+https://gallery.ecr.aws/zinclabs/openobserve
 
 ## Setup
 
-Describe any manual set up steps necessary for the tool.
+* Setting the openobserve data location
+* Starting the openobserve daemon
 
 ## Specifics
 
-Describe any specific tuning, preprocessing or configuration that beyond the defaults you made for 
-benchmarking. If there is no specifics you can delete this section.
+Ingestion is done in 50000 line batches through an HTTP API: the software is designed for streams
+of data, not compressing large amounts
 
-[download]: https://via.placeholder.com/20
+Searching is done in a way where openobserve knows the only desired value is the number of logs
+satisfying the constraint.

@@ -2,7 +2,7 @@
 # dependencies
 
 # If there is any dedicated image available, you should build the benchmarking image on top of that
-FROM public.ecr.aws/zinclabs/openobserve:latest
+FROM public.ecr.aws/zinclabs/openobserve:v0.15.0-rc1
 
 FROM ghcr.io/y-scope/clp/clp-core-dependencies-x86-ubuntu-jammy:main
 

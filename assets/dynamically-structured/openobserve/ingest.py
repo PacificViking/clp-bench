@@ -19,7 +19,10 @@ def ingest_dataset():
     with open(sys.argv[1], 'r') as file:
         data = []
         for line in file:
-            data.append(json.loads(line))
+            linee = line.strip()
+            if not linee:
+                continue
+            data.append(json.loads(linee))
             if len(data)>50000:
                 res = requests.post(openobserve_url, headers=headers, data=json.dumps(data))
                 data = []
