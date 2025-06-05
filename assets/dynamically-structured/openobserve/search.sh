@@ -9,18 +9,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-# Your query command goes here
-output=$(/openobserve sql -t 100y --execute "SELECT COUNT(*) FROM clpbench1 WHERE $1" 2> /dev/null)
-# debug logs out of stderr is messing up our python that reads everything
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+python3 "${script_dir}/search.py" "$1"
 
-# outputs:
-# +----------+
-# | count(*) |
-# +----------+
-# | 454      |
-# +----------+
-
-# remove newlines, get what's in between the 3rd and 4th |, then remove the spaces around it
-field=$(echo "$output" | tr '\n' ' ' | awk -F'\\|' '{print $4}' | sed 's/^ *//;s/ *$//')
-
-echo "$field"
+exit 0
