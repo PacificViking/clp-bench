@@ -1,4 +1,4 @@
-# Tool name methodology
+# Openobserve methodology
 
 ## Basics
 
@@ -18,5 +18,5 @@ https://gallery.ecr.aws/zinclabs/openobserve
 Ingestion is done in 50000 line batches through an HTTP API: the software is designed for streams
 of data, not compressing large amounts
 
-Searching is done in a way where openobserve knows the only desired value is the number of logs
-satisfying the constraint.
+Searching is similarly done through an HTTP API in pages of 1000 due to maximum number of returned
+rows

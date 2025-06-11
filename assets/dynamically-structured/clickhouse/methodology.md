@@ -18,6 +18,10 @@ For query benchmarking, we operate in [single-thread mode][max_threads] by setti
 [minimum data volume required for direct I/O access][direct_io] to 1 byte
 (`min_bytes_to_use_direct_io = 1`) on the storage disk.
 
+## Native JSON Changes
+* Queries use cleaner dot syntax instead of the original JSON_VALUE functions.
+* SQL command uses FORMAT JSON rather than FORMAT JSONAsString
+* Table creation requires templating of static and dynamic parts of the logs, including types
 
 [download]: https://hub.docker.com/layers/clickhouse/clickhouse-server/23.3.1.2823/images/sha256-b88fd8c71b64d3158751337557ff089ff7b0d1ebf81d9c4c7aa1f0b37a31ee64?context=explore
 [direct_io]: https://clickhouse.com/docs/en/operations/settings/settings#min_bytes_to_use_direct_io
