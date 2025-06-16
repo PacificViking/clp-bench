@@ -11,5 +11,5 @@ collection_name=clickhouse_clp_bench
 
 clickhouse-client \
     --max_threads 1 \
-    --query "INSERT INTO ${collection_name} FROM INFILE '$1' FORMAT JSON" \
+    --query "INSERT INTO ${collection_name} FROM INFILE '$1' FORMAT JSONAsObject" \
     >/dev/null 2>&1

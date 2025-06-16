@@ -13,13 +13,13 @@ related_processes:
   - clickhouse-client
   - clickhouse-watchd
 queries:
-  - '"not(isNull(attr.tickets))"'
-  - '"id = 22419"'
+  - '"not(isNull(json.attr.tickets))"'
+  - '"json.id = 22419"'
   - >
-    "attr.message.msg like 'log_release%' AND attr.message.session_name = 'connection'"
+    "json.attr.message.msg like 'log_release%' AND json.attr.message.session_name = 'connection'"
   - >
-    "ctx = 'initandlisten' AND (attr.message.msg like 'log_remove%' OR msg != 'WiredTiger message')"
+    "json.ctx = 'initandlisten' AND (json.attr.message.msg like 'log_remove%' OR json.msg != 'WiredTiger message')"
   - >
-    "c = 'WTWRTLOG' and attr.message.ts_sec > 1679490000"
+    "json.c = 'WTWRTLOG' and json.attr.message.ts_sec > 1679490000"
   - >
-    "ctx = 'FlowControlRefresher' AND attr.numTrimmed = 0 "
+    "json.ctx = 'FlowControlRefresher' AND json.attr.numTrimmed = 0 "
