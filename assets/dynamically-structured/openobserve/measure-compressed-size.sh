@@ -4,4 +4,5 @@
 
 # Your archive measuring command goes here
 
-du "/home/data" -bc | awk "END {print \$1}"
+# du "/home/data" -bc | awk "END {print \$1}"
+du "/home/data/openobserve/stream/files/default/logs" -bc | awk "END {print \$1}"

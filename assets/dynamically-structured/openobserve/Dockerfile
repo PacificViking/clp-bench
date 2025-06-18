@@ -10,6 +10,9 @@ COPY --from=0 /openobserve /openobserve
 COPY --from=0 /lib/x86_64-linux-gnu/liblzma.so.5 /lib/x86_64-linux-gnu/liblzma.so.5
 COPY --from=0 /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1
 
+ENV ZO_HTTP_WORKER_NUM=1
+ENV ZO_QUERY_THREAD_NUM=1
+
 # Install necessary packages
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \

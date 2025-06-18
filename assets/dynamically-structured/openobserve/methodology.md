@@ -20,3 +20,11 @@ of data, not compressing large amounts
 
 Searching is similarly done through an HTTP API in pages of 1000 due to maximum number of returned
 rows
+
+The following environment variables are set in the Dockerfile:
+* ZO_HTTP_WORKER_NUM=1
+* ZO_QUERY_THREAD_NUM=1
+
+The size of /home/data/openobserve/stream/files/default/logs is used to measure the compressed size,
+as openobserve does not seem to offer an API for querying this information. The size of this folder
+after ingesting the same dataset seems to be fairly consistent
