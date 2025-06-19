@@ -58,11 +58,11 @@ Compressed data structure:
 Get all error logs
 ```
 SELECT * FROM table WHERE
-"array_position(string_columns, 'msg.status') > 0 
+array_position(string_columns, 'msg.status') > 0 
 AND element_at(
   string_values, 
   array_position(string_columns, 'msg.status')
-) = 'error';"
+) = 'error';
 ```
 
 
