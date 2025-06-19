@@ -24,4 +24,20 @@ native-execution-enabled = true
 task.max-drivers-per-task=1
 ```
 
+## Data Structure
+| line |
+|------|
+| {"msg": { "ts": 0, "status": "ok" }} |
+| {"msg": { "ts": 1, "status": "error", "thread_num": 4, "backtrace": "" }} |
+| ... |
+
+### Searching
+
+Get all error logs
+```
+SELECT * FROM table WHERE
+json_extract_scalar(json_parse(line), 'msg.status') = "error";
+```
+
+
 [presto]: https://github.com/y-scope/presto/tree/ec3aedb239508ccd91891260ae89e111eb268761
