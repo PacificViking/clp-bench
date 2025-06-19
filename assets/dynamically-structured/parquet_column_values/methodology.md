@@ -61,7 +61,7 @@ SELECT * FROM table WHERE
 "array_position(string_columns, 'msg.status') > 0 
 AND element_at(
   string_values, 
-  array_position(string_columns, 'id')
+  array_position(string_columns, 'msg.status')
 ) = 'error';"
 ```
 
