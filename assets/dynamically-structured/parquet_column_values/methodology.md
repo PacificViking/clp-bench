@@ -28,6 +28,7 @@ task.max-drivers-per-task=1
 
 ## Data Structure
 
+Original data:
 ```
 {
  "msg": {
@@ -46,8 +47,7 @@ task.max-drivers-per-task=1
 }
 ```
 
-Is compressed into:
-
+Compressed data structure:
 | string_columns | string_values | int_columns | int_values |
 |-|-|-|-|
 | ["msg.status"] | ["ok"] | ["msg.ts"] | [0] |
