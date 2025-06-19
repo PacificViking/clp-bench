@@ -29,6 +29,7 @@ RUN apt-get install -y \
     git \
     lsb-release \
     maven \
+    netcat \
     openjdk-11-jdk \
     openssh-server \
     python3 \
@@ -47,7 +48,7 @@ RUN apt-get install -y \
 # Install Task
 RUN cd /usr/local && sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d;
 
-RUN pip3 install pyarrow
+RUN pip3 install pyarrow;
 
 RUN mkdir -p /home/pacificviking-dev/presto/hive-data;
 

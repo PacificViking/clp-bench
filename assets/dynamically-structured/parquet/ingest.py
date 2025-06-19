@@ -3,13 +3,15 @@ import pyarrow.parquet as pq
 import sys
 
 INPUT_FILE = sys.argv[1]
-print(INPUT_FILE)
 OUTPUT_FILE = "/home/pacificviking-dev/presto/hive-data/bench_schema/bench_table/mongod.parquet"
 BATCH_SIZE = 10000
 
 schema = pa.schema([("line", pa.string())])
 
-with pq.ParquetWriter(OUTPUT_FILE, schema) as writer:
+pa.set_cpu_count(1)
+pa.set_io_thread_count(1)
+
+with pq.ParquetWriter(OUTPUT_FILE, schema, compression="ZSTD", compression_level=3) as writer:
     batch = []
     with open(INPUT_FILE, "r") as f:
         for i, line in enumerate(f, 1):

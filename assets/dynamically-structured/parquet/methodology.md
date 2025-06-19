@@ -1,16 +1,23 @@
-# Tool name methodology
+# Parquet (PyArrow+Presto+Hive) methodology
 
 ## Basics
 
-Version: [1.0.0][download]
+pyarrow 20.0.0
+Presto Version: [presto-server-0.293-SNAPSHOT][presto]
 
 ## Setup
 
-Describe any manual set up steps necessary for the tool.
+* Ingested every JSON log into single varchar column, and parsed them during search
+* zstd(3) compression used
+* This ingestion was done solely with PyArrow generating a parquet file
 
-## Specifics
+### Coordinator configuration
+query.max-memory = 1GB
+task.max-worker-threads = 1
+task.concurrency = 1
+native-execution-enabled = true
 
-Describe any specific tuning, preprocessing or configuration that beyond the defaults you made for 
-benchmarking. If there is no specifics you can delete this section.
+### Worker (native execution) configuration
+task.max-drivers-per-task=1
 
-[download]: https://via.placeholder.com/20
+[presto]: https://github.com/y-scope/presto/tree/ec3aedb239508ccd91891260ae89e111eb268761
