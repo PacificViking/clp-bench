@@ -28,8 +28,8 @@ for bench_target in bench_target_dirs:
     clp_bench.ingest(clp_bench_executor)
     logging.disable(logging.NOTSET)
 
-    print(clp_bench_executor._ClpBenchExecutor__benchmarking_results[clp_bench.BenchmarkingMode.INGEST_MODE].compressed_size)
-    #clp_bench_executor.visualize()
+    #print(clp_bench_executor._ClpBenchExecutor__benchmarking_results[clp_bench.BenchmarkingMode.INGEST_MODE].compressed_size)
+    clp_bench_executor.visualize()
 
     print()
 
