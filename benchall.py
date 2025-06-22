@@ -13,8 +13,10 @@ bench_asset = os.path.abspath(sys.argv[1])
 
 bench_target_dirs = [p for p in data_dir.iterdir() if p.is_dir()]
 
+print("Asset:", os.path.basename(bench_asset))
+
 for bench_target in bench_target_dirs:
-    print(os.path.basename(bench_target))
+    print("Target: ", os.path.basename(bench_target))
     #subprocess.Popen([f'{bench_asset}/docker_run.sh {bench_target}'])
 
     child = pexpect.spawn(f'{bench_asset}/docker-run.sh {bench_target}', encoding='utf-8', echo=False)
