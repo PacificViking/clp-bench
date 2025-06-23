@@ -13,9 +13,9 @@ bench_asset = os.path.abspath(sys.argv[1])
 
 bench_target_dirs = [p for p in data_dir.iterdir() if p.is_dir()]
 
-print("Asset:", os.path.basename(bench_asset))
 
 for bench_target in bench_target_dirs:
+    print("Asset:", os.path.basename(bench_asset))
     print("Target: ", os.path.basename(bench_target))
     #subprocess.Popen([f'{bench_asset}/docker_run.sh {bench_target}'])
 
