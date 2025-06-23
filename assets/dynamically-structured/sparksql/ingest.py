@@ -11,6 +11,7 @@ spark = SparkSession \
     .config("spark.executor.cores", "1") \
     .config("spark.executor.instances", "1") \
     .getOrCreate()
+    #.config("spark.io.compression.zstd.level", "3") \
 
 df = spark.read.json(sys.argv[1])
 df.write.parquet("/data/mongod", mode="overwrite", compression="zstd")  # need to set zstd(3)
