@@ -1,5 +1,9 @@
 # Openobserve methodology
 
+> Note: Maybe because the ingestion is being done through a HTTP interface, some characters in keys
+in the JSON doesn't work. This causes no output in several alternate test cases. A possible solution
+is to base64 (or hash) each key
+
 ## Basics
 
 > Note: running queries immediately after a reset causes errors since reset returns when deleting
