@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-clp_s_binary=/home/assets/clp-s
+clp_s_binary=/clp/clp-s
 data_path=/home/archives
 
 "${clp_s_binary}" s "$data_path" "$1" | wc -l
