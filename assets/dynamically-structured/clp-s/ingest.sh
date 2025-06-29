@@ -10,8 +10,8 @@ fi
 clp_s_binary=/clp/clp-s
 data_path=/home/archives
 
-# timestamp = "t.\$date"  # mongodb
-timestamp="timestamp"  # cockroachdb / postgresql
+timestamp="t.\$date"  # mongodb
+# timestamp="timestamp"  # cockroachdb / postgresql
 # timestamp="\@timestamp"  # elasticsearch
 # timestamp="Timestamp"  # spark-event-logs
 
