@@ -30,7 +30,9 @@ pyrightconfig.json
 doc/_build/
 *.swp
 .DS_Store
-data/
+/data/
+/mongod/
+/mongodb/
 
 
 # python
