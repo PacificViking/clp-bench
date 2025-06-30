@@ -18,7 +18,7 @@ queries:
   - >
     "attr.message.msg like 'log_release%' AND attr.message.session_name = 'connection'"
   - >
-    "ctx = 'initandlisten' AND (attr.message.msg like 'log_remove%' OR msg != 'WiredTiger message')"
+    "ctx = 'initandlisten' AND (attr.message.msg like 'log_remove%' OR msg != 'WiredTigermessage')"
   - >
     "c = 'WTWRTLOG' and attr.message.ts_sec > 1679490000"
   - >
