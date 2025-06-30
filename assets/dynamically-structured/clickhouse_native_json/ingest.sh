@@ -11,5 +11,5 @@ collection_name=clickhouse_clp_bench
 
 clickhouse-client \
     --max_threads 1 \
-    --query "SET max_memory_usage = 8000000000; INSERT INTO ${collection_name} FROM INFILE '$1' FORMAT JSONAsObject" \
+    --query "SET max_memory_usage = 8000000000; INSERT INTO ${collection_name} FROM INFILE '$1' FORMAT JSON" \
     >/dev/null 2>&1

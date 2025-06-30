@@ -9,9 +9,28 @@ clickhouse-client \
     --max_threads 1 \
     --query "SET enable_json_type = 1;" \
     >/dev/null 2>&1
+
+# clickhouse-client \
+#     --max_threads 1 \
+#     --query "CREATE TABLE ${collection_name}( \
+#     json JSON \
+#     ) ENGINE = MergeTree ORDER \
+#     BY tuple()" >/dev/null 2>&1
+
 clickhouse-client \
     --max_threads 1 \
     --query "CREATE TABLE ${collection_name}( \
-    json JSON \
-    ) ENGINE = MergeTree ORDER \
-    BY tuple()" >/dev/null 2>&1
+    t Tuple(\$date String), \
+    s String, \
+    c String, \
+    id int, \
+    ctx String, \
+    msg String, \
+    attr JSON \
+    ) \
+    ENGINE = MergeTree \
+    PRIMARY KEY (id) \
+    ORDER BY (id) \
+    "
+    # >/dev/null 2>&1
+
