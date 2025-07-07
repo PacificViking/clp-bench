@@ -12,7 +12,6 @@ if [ -z "$1" ]; then
 fi
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-presto_dir="$HOME/presto"
 container_name=$(cat "$script_dir/container-name")
 workdir=/home
 
@@ -24,7 +23,8 @@ docker run \
     --network host \
     --name "$container_name" \
     --mount "type=bind,src=$script_dir,dst=/home/assets" \
-    --mount "type=bind,src=$presto_dir,dst=/home/presto" \
+    --mount "type=bind,src=$script_dir/include/etc_coordinator,dst=/home/presto/etc_coordinator" \
+    --mount "type=bind,src=$script_dir/include/etc_worker,dst=/home/presto/presto-native-execution/build/etc_worker" \
     --mount "type=bind,src=$1,dst=/home/datasets" \
     "$container_name" \
     bash -c "cd ${workdir} && /bin/bash -l"
