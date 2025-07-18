@@ -24,6 +24,9 @@ docker run \
     --workdir "$workdir" \
     --network host \
     --name "$container_name" \
+    --cpus=4 \
+    --memory=8g \
+    --memory-swap=8g \
     --mount "type=bind,src=$script_dir,dst=/home/assets" \
     --mount "type=bind,src=$presto_dir,dst=/home/presto" \
     --mount "type=bind,src=$clpjson_dir,dst=/home/clp-json-x86_64-v0.2.0-dev" \

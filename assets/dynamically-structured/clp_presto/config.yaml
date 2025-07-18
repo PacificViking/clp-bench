@@ -35,8 +35,8 @@ queries:
   # field that starts with "log_release" and a "session_name" field that is "connection"
   - '"attr.message.msg LIKE ''log_release%'' AND attr.message.session_name = ''connection'';"'
   # Query all JSON log lines where "ctx" is "initandlisten" and either "msg" does not equal to
-  # "WiredTigermessage" or "attr.message.msg" starts with "log_remove"
-  - '"ctx = ''initandlisten'' AND (msg != ''WiredTigermessage'' OR attr.message.msg LIKE ''log_remove%'')"'
+  # "WiredTiger message" or "attr.message.msg" starts with "log_remove"
+  - '"ctx = ''initandlisten'' AND (msg != ''WiredTiger message'' OR attr.message.msg LIKE ''log_remove%'')"'
   # Query all JSON log lines where "c" is "WTWRTLOG" and "attr.message.ts_sec" is greater than
   # 1679490000
   - '"c = ''WTWRTLOG'' AND attr.message.ts_sec > 1679490000;"'
